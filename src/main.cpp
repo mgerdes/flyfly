@@ -19,7 +19,8 @@ int main() {
         double timeDelta = currentTime - lastTime;
         lastTime = currentTime;
 
-        game.update(timeDelta);
+        window.updateControls();
+        game.update(timeDelta, window.getControls());
         renderer.renderScene();
 
         window.swapBuffers();

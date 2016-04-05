@@ -3,9 +3,13 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include "Util.h"
+#include "Controls.h"
 
 class Window {
+    private:
+        Controls controls;
     public:
         GLFWwindow *glfwWindow;
 
@@ -19,9 +23,9 @@ class Window {
 
         void swapBuffers();
 
-        int getWidth();
+        void updateControls();
 
-        int getHeight();
+        Controls *getControls();
 };
 
 #endif 

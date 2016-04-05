@@ -42,14 +42,17 @@ void Window::swapBuffers() {
     glfwSwapBuffers(glfwWindow);
 }
 
-int Window::getWidth() {
-    int width, height;
-    glfwGetFramebufferSize(glfwWindow, &width, &height);
-    return width;
+Controls *Window::getControls() {
+    return &controls;
 }
 
-int Window::getHeight() {
-    int width, height;
-    glfwGetFramebufferSize(glfwWindow, &width, &height);
-    return height;
+void Window::updateControls() {
+    double newMousePositionX, newMousePositionY;
+    glfwGetCursorPos(glfwWindow, &newMousePositionX, &newMousePositionY);
+
+    controls.mouseDeltaX = newMousePositionX - controls.mousePositionX;
+    controls.mouseDeltaY = newMousePositionY - controls.mousePositionY;
+
+    controls.mousePositionX = newMousePositionX;
+    controls.mousePositionY = newMousePositionY;
 }
