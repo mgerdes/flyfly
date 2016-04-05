@@ -13,7 +13,7 @@ class Renderer {
     public:
         Renderer(Scene *scene, Camera *camera);
 
-        void render();
+        void renderScene();
 };
 
 #endif

@@ -8,8 +8,9 @@ set(SOURCE_FILES
     src/math/Quaternion.cpp
     src/graphics/camera/Camera.cpp
     src/graphics/material/Material.cpp
+    src/graphics/geometry/Geometry.cpp
+    src/graphics/geometry/BoxGeometry.cpp
     src/graphics/objects/Mesh.cpp
-    src/graphics/objects/Geometry.cpp
     src/graphics/objects/Object3D.cpp
     src/graphics/objects/Scene.cpp
     src/graphics/shader/Shader.cpp
@@ -23,6 +24,7 @@ set(SOURCE_FILES
 include_directories(
     src/math
     src/graphics/renderer
+    src/graphics/geometry
     src/graphics/camera
     src/graphics/material
     src/graphics/objects

@@ -2,7 +2,7 @@
 #include "ShaderLibrary.h"
 #include "Renderer.h"
 #include "BasicMaterial.h"
-#include "Geometry.h"
+#include "BoxGeometry.h"
 #include "Scene.h"
 
 int main() {
@@ -10,13 +10,7 @@ int main() {
 
     ShaderLibrary::createShaders();
 
-    Geometry geometry(6);
-    geometry.addVertex(-0.5, -0.5, 0.0);
-    geometry.addVertex(-0.5,  0.5, 0.0);
-    geometry.addVertex( 0.5,  0.5, 0.0);
-    geometry.addVertex(-0.5, -0.5, 0.0);
-    geometry.addVertex( 0.5, -0.5, 0.0);
-    geometry.addVertex( 0.5,  0.5, 0.0);
+    BoxGeometry geometry;
 
     BasicMaterial material;
     Mesh mesh(&geometry, &material);
@@ -36,7 +30,11 @@ int main() {
         double timeDelta = currentTime - lastTime;
         lastTime = currentTime;
 
-        renderer.render();
+        mesh.getRotation()->x += 0.01;
+        mesh.getRotation()->y += 0.01;
+        mesh.updateModelMat();
+
+        renderer.renderScene();
 
         window.swapBuffers();
     }

@@ -42,7 +42,7 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
     }
 }
 
-void Renderer::render() {
+void Renderer::renderScene() {
     Object3D** objects = this->scene->getObjects();
     int numObjects = this->scene->getNumObjects();
 
