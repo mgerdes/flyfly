@@ -10,13 +10,23 @@ int main() {
 
     ShaderLibrary::createShaders();
 
-    BoxGeometry geometry;
 
-    BasicMaterial material;
-    Mesh mesh(&geometry, &material);
+    BasicMaterial material1;
+    BoxGeometry geometry1;
+    Mesh mesh1(&geometry1, &material1);
+    mesh1.getTranslation()->setThis(2.0, 0.0, 4.0);
+    mesh1.getScale()->setThis(1.0, 1.0, 1.0);
+    mesh1.updateModelMat();
 
-    Scene scene(1);
-    scene.addObject(&mesh);
+    BasicMaterial material2;
+    BoxGeometry geometry2;
+    Mesh mesh2(&geometry2, &material2);
+    mesh2.getTranslation()->setThis(-2.0, 0.0, 0.0);
+    mesh2.updateModelMat();
+
+    Scene scene(2);
+    scene.addObject(&mesh1);
+    scene.addObject(&mesh2);
 
     Camera camera(67.0, 1.0, 0.1, 100.0);
 
@@ -30,9 +40,8 @@ int main() {
         double timeDelta = currentTime - lastTime;
         lastTime = currentTime;
 
-        mesh.getRotation()->x += 0.01;
-        mesh.getRotation()->y += 0.01;
-        mesh.updateModelMat();
+        mesh1.getScale()->y += 0.01;
+        mesh1.updateModelMat();
 
         renderer.renderScene();
 

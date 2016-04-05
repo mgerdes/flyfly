@@ -40,6 +40,12 @@ class Matrix4 {
         static Matrix4 eulerRotation(Vector3 *v);
 
         static Matrix4 eulerRotation(float x, float y, float z);
+
+        static float determinantOf(Matrix4 *m);
+
+        static Matrix4 inverseOf(Matrix4 *m);
+
+        static Matrix4 transposeOf(Matrix4 *m);
 };
 
 #endif 

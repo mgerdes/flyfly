@@ -27,6 +27,10 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
         mesh->getMaterial()->getShader()->setMatProperty("view_mat", camera->getViewMatrix()->m);
         mesh->getMaterial()->getShader()->setMatProperty("model_mat", modelMat->m);
 
+        Matrix4 transpose = Matrix4::transposeOf(modelMat);
+        Matrix4 normalMat = Matrix4::inverseOf(&transpose);
+        mesh->getMaterial()->getShader()->setMatProperty("normal_mat", normalMat.m);
+
         mesh->draw();
 
         // Unbind what was previously binded.
