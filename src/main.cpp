@@ -39,7 +39,7 @@ int main() {
         double timeDelta = currentTime - lastTime;
         lastTime = currentTime;
 
-        mesh1.getScale()->y += 0.01;
+        mesh1.getRotation()->x += 0.01;
         mesh1.updateModelMat();
 
         renderer.renderScene();
