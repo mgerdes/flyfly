@@ -9,7 +9,7 @@ Camera::Camera(float fieldOfView, float aspectRatio, float near, float far) {
     this->near = near;
     this->far = far;
 
-    this->position = Vector3(0.0, 10.0, 10.0);
+    this->position = Vector3(0.0, 0.0, 10.0);
     this->lookAt = Vector3(0.0, 0.0, 0.0);
     this->up = Vector3(0.0, 1.0, 0.0);
 
