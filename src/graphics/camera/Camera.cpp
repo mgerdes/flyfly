@@ -63,6 +63,10 @@ void Camera::updateProjectionMatrix() {
     projectionMatrix.m[11] = -1.0f;
 }
 
+void Camera::setAspectRatio(float aspectRatio) {
+    this->aspectRatio = aspectRatio;
+}
+
 Matrix4 *Camera::getProjectionMatrix() {
     return &projectionMatrix;
 }

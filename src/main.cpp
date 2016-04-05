@@ -19,6 +19,11 @@ int main() {
         double timeDelta = currentTime - lastTime;
         lastTime = currentTime;
 
+        window.updateDimensions();
+        if (window.whereDimensionsChanged) {
+            game.getCamera()->setAspectRatio((float) window.width / window.height);
+            game.getCamera()->updateProjectionMatrix();
+        }
         window.updateControls();
         game.update(timeDelta, window.getControls());
         renderer.renderScene();

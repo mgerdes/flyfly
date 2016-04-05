@@ -12,6 +12,8 @@ class Window {
         Controls controls;
     public:
         GLFWwindow *glfwWindow;
+        int width, height;
+        bool whereDimensionsChanged;
 
         Window(const char *title, int width, int height);
 
@@ -22,6 +24,8 @@ class Window {
         void clearBufferAndColor();
 
         void swapBuffers();
+
+        void updateDimensions();
 
         void updateControls();
 

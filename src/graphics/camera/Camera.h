@@ -17,6 +17,8 @@ class Camera {
 
         void updateViewMatrix();
 
+        void setAspectRatio(float aspectRation);
+
         Matrix4 *getProjectionMatrix();
 
         Matrix4 *getViewMatrix();

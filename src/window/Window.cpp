@@ -46,6 +46,20 @@ Controls *Window::getControls() {
     return &controls;
 }
 
+void Window::updateDimensions() {
+    int newWidth, newHeight;
+    glfwGetFramebufferSize(glfwWindow, &newWidth, &newHeight); 
+    if (newWidth != width || newHeight != height) {
+        width = newWidth;
+        height = newHeight;
+        whereDimensionsChanged = true;
+        glViewport(0, 0, width, height);
+    } 
+    else {
+        whereDimensionsChanged = false;
+    }
+}
+
 void Window::updateControls() {
     double newMousePositionX, newMousePositionY;
     glfwGetCursorPos(glfwWindow, &newMousePositionX, &newMousePositionY);

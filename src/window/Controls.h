@@ -4,7 +4,7 @@
 class Controls {
     public:
         /* Mouse Controls */
-        double mouseSensitivity = 5.0;
+        double mouseSensitivity = 10.0;
         double mousePositionX, mouseDeltaX, mouseDeltaY, mousePositionY;
 };
 
