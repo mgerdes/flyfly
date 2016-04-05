@@ -7,7 +7,7 @@
 
 class Mesh : public Object3D {
     private:
-        unsigned int VAO;
+        unsigned int EBO, VAO, verticesVBO, normalsVBO, indicesVBO;
 
         Geometry *geometry;
         Material *material;

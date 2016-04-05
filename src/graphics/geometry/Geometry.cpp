@@ -13,6 +13,10 @@ Geometry::Geometry(int maxVertices) {
     this->numNormals = 0;
     this->maxNumNormals = 0;
     this->normals = 0;
+
+    this->numFaces = 0;
+    this->maxNumFaces = 0;
+    this->faces = 0;
 }
 
 Geometry::~Geometry() {
@@ -87,4 +91,23 @@ void Geometry::addNormal(float x, float y, float z) {
 
 bool Geometry::hasNormals() {
     return this->numNormals > 0;
+}
+
+void Geometry::setMaxNumFaces(int maxNumFaces) {
+    this->faces = new int[maxNumFaces * 3];
+}
+
+void Geometry::addFace(int x, int y, int z) {
+    this->faces[this->numFaces * 3] = x;
+    this->faces[this->numFaces * 3 + 1] = y;
+    this->faces[this->numFaces * 3 + 2] = z;
+    this->numFaces++;
+}
+
+int Geometry::getNumFaces() {
+    return this->numFaces;
+}
+
+int *Geometry::getFaces() {
+    return this->faces;
 }

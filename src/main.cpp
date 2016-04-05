@@ -10,7 +10,6 @@ int main() {
 
     ShaderLibrary::createShaders();
 
-
     BasicMaterial material1;
     BoxGeometry geometry1;
     Mesh mesh1(&geometry1, &material1);

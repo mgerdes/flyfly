@@ -13,6 +13,9 @@ class Geometry {
 
         int numNormals, maxNumNormals;
         float *normals;
+
+        int numFaces, maxNumFaces;
+        int *faces;
     public:
         Geometry(int maxVertices);
 
@@ -43,6 +46,14 @@ class Geometry {
         float *getNormals();
 
         bool hasNormals();
+
+        void setMaxNumFaces(int maxNumFaces);
+
+        void addFace(int x, int y, int z);
+
+        int getNumFaces();
+
+        int *getFaces();
 };
 
 #endif
