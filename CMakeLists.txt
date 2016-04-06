@@ -3,7 +3,7 @@ Set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 project(flyfly)
 
 set(SOURCE_FILES
-    src/flyfly/FlyFlyGame.cpp
+    src/flyflygame/FlyFlyGame.cpp
     src/math/Vector3.cpp
     src/math/Matrix4.cpp
     src/math/Quaternion.cpp
@@ -23,7 +23,7 @@ set(SOURCE_FILES
     src/util/Util.cpp
     )
 include_directories(
-    src/flyfly
+    src/flyflygame
     src/math
     src/graphics/renderer
     src/graphics/geometry
