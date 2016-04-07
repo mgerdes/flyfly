@@ -2,20 +2,20 @@
 #define FLY_FLY_ROPE
 
 #include "Vector3.h"
+#include "BasicMaterial.h"
+#include "BoxGeometry.h"
+#include "Mesh.h"
 
-class Rope {
+class Rope : public Mesh {
     private:
         float speed = 1.0; 
-        Vector3 position;
         float length;
     public:
-        Rope(Vector3 startPosition);
+        Rope();
 
         void update(float dt);
 
         float getLength();
-
-        Vector3 *getPosition();
 };
 
 #endif

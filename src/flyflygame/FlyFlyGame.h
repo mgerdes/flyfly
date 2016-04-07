@@ -8,11 +8,13 @@
 #include "Camera.h"
 #include "BoxGeometry.h"
 #include "BasicMaterial.h"
+#include "Rope.h"
 
 class FlyFlyGame {
     private:
         Scene scene; 
         Camera camera;
+        Rope rope;
     public:
         FlyFlyGame();
 

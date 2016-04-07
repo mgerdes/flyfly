@@ -13,6 +13,7 @@ set(SOURCE_FILES
     src/graphics/geometry/Geometry.cpp
     src/graphics/geometry/BoxGeometry.cpp
     src/graphics/objects/Mesh.cpp
+    src/graphics/objects/Line.cpp
     src/graphics/objects/Object3D.cpp
     src/graphics/objects/Scene.cpp
     src/graphics/shader/Shader.cpp

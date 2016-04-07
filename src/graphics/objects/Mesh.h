@@ -21,6 +21,8 @@ class Mesh : public Object3D {
         Material *getMaterial();
 
         Geometry *getGeometry();
+
+        void updateVertices();
 };
 
 #endif 

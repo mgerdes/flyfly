@@ -18,7 +18,7 @@ class Object3D {
         Quaternion quaternion;
         Vector3 translation, scale, rotation;
     public:
-        bool isMesh, isVisible;
+        bool isMesh, isLine, isVisible;
 
         Object3D(int maxNumChildren);
 

@@ -12,6 +12,8 @@ Window::Window(const char *title, int width, int height) {
 
     glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL);
 
+    glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
     if (!glfwWindow) {
         Util::log(ERROR, "Could not create window");
     }
@@ -78,4 +80,18 @@ void Window::updateControls() {
         controls.wasLeftMouseClicked = controls.isLeftMouseDown;
         controls.isLeftMouseDown = false;
     }
+
+    controls.isLeftKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_LEFT);
+    controls.isRightKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_RIGHT);
+    controls.isUpKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_UP);
+    controls.isDownKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_DOWN);
+
+    controls.isAKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_A);
+    controls.isSKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_S);
+    controls.isDKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_D);
+    controls.isWKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_W);
+    controls.isQKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_Q);
+    controls.isEKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_E);
+
+    controls.isSpaceKeyPressed = glfwGetKey(glfwWindow, GLFW_KEY_SPACE);
 }

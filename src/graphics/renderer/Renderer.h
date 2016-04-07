@@ -3,6 +3,9 @@
 
 #include "Scene.h"
 #include "Camera.h"
+#include "Mesh.h"
+#include "Line.h"
+#include "BasicMaterial.h"
 
 class Renderer {
     private:

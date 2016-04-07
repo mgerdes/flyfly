@@ -1,15 +1,19 @@
 #include "Rope.h"
 
-Rope::Rope(Vector3 position) : position(position) {
-    length = 0;
+Rope::Rope() : Mesh(new BoxGeometry(), new BasicMaterial()) {
+    Matrix4 translationMatrix = Matrix4::translation(0.0, 0.0, 1.0);
+    getGeometry()->applyMatrix(&translationMatrix);
+    updateVertices();
+
+    this->getScale()->setThis(0.05, 0.05, 500.0);
+    this->updateModelMat();
+    getRotation()->z = M_PI;
+
+    setMatrixMultOrder(MatrixMultOrder::T_R_S);
 }
 
 void Rope::update(float dt) {
-    length += speed * dt;      
-}
 
-Vector3 *Rope::getPosition() {
-    return &position;
 }
 
 float Rope::getLength() {

@@ -7,6 +7,7 @@ Object3D::Object3D(int maxNumChildren) {
         this->children = new Object3D*[maxNumChildren];
     }
     this->isMesh = false;
+    this->isLine = false;
     this->isVisible = true;
 
     this->translation = Vector3(0.0, 0.0, 0.0);

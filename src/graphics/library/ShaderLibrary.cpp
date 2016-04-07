@@ -4,6 +4,7 @@ Shader *ShaderLibrary::shaders[ShaderEnum::NUM_SHADERS];
 
 void ShaderLibrary::createShaders() {
     shaders[ShaderEnum::BASIC_SHADER] = new Shader("resources/shaders/basic_vert.glsl", "resources/shaders/basic_frag.glsl");
+    shaders[ShaderEnum::BASIC_LINE_SHADER] = new Shader("resources/shaders/basic_line_vert.glsl", "resources/shaders/basic_line_frag.glsl");
 }
 
 void ShaderLibrary::deleteShaders() {

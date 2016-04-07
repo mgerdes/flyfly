@@ -2,6 +2,7 @@
 #define GRAPHICS_GEOMETRY_H
 
 #include "Vector3.h"
+#include "Matrix4.h"
 
 class Geometry {
     private:
@@ -54,6 +55,8 @@ class Geometry {
         int getNumFaces();
 
         int *getFaces();
+
+        void applyMatrix(Matrix4 *m);
 };
 
 #endif

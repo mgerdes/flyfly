@@ -111,3 +111,13 @@ int Geometry::getNumFaces() {
 int *Geometry::getFaces() {
     return this->faces;
 }
+
+void Geometry::applyMatrix(Matrix4 *m) {
+    for (int i = 0; i < getNumVertices(); i++) {
+        Vector3 v = Vector3(vertices[i*3], vertices[i*3+1], vertices[i*3+2]);
+        v.applyMatrix(m);
+        vertices[i*3] = v.x;
+        vertices[i*3+1] = v.y;
+        vertices[i*3+2] = v.z;
+    }
+}

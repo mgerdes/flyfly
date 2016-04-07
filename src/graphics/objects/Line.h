@@ -7,6 +7,7 @@
 
 class Line : public Object3D {
     private:
+        unsigned int VAO;
         Geometry *geometry;
         Material *material;
     public:
@@ -16,9 +17,11 @@ class Line : public Object3D {
 
         void draw();
 
-        Geometry *Line::getGeometry();
+        Geometry *getGeometry();
 
-        Material *Line::getMaterial();
+        Material *getMaterial();
+
+        void updateVertices();
 };
 
 #endif

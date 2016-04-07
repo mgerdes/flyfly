@@ -57,3 +57,19 @@ Material *Mesh::getMaterial() {
 Geometry *Mesh::getGeometry() {
     return geometry;
 }
+
+void Mesh::updateVertices() {
+    glBindVertexArray(VAO);
+
+    unsigned int verticesVBO;
+    glGenBuffers(1, &verticesVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesVBO);
+    glBufferData(GL_ARRAY_BUFFER,
+            3 * geometry->getNumVertices() * sizeof(float),
+            geometry->getVertices(),
+            GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+    glEnableVertexAttribArray(0);
+
+    glBindVertexArray(0);
+}

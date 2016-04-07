@@ -4,7 +4,7 @@
 #include "Shader.h"
 
 enum ShaderEnum {
-    BASIC_SHADER = 0, NUM_SHADERS   
+    BASIC_SHADER = 0, BASIC_LINE_SHADER, NUM_SHADERS   
 };
 
 class ShaderLibrary {

@@ -1,6 +1,6 @@
 #include "FlyFlyGame.h"
 
-FlyFlyGame::FlyFlyGame() : scene(500), camera(67.0, 1.0, 0.1, 1000.0) {
+FlyFlyGame::FlyFlyGame() : scene(501), camera(67.0, 1.0, 0.1, 1000.0) {
     for (int i = 0; i < 500; i++) {
         BasicMaterial *material = new BasicMaterial();
         BoxGeometry *boxGeometry = new BoxGeometry();
@@ -20,6 +20,7 @@ FlyFlyGame::FlyFlyGame() : scene(500), camera(67.0, 1.0, 0.1, 1000.0) {
         mesh->updateModelMat();
         scene.addObject(mesh);
     }
+    scene.addObject(&rope);
 }
 
 void FlyFlyGame::update(float dt, Controls *controls) {
@@ -45,9 +46,49 @@ void FlyFlyGame::update(float dt, Controls *controls) {
     float cosInclination = cos(inclinationAngleRads);
     float sinInclination = sin(inclinationAngleRads);
 
-    //camera.getPosition()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
+    if (controls->isLeftKeyPressed) {
+        azimuthAngle += 50 * dt;
+    }
+    if (controls->isRightKeyPressed) {
+        azimuthAngle -= 50 * dt;
+    }
+    if (controls->isUpKeyPressed) {
+        inclinationAngle -= 50 * dt;
+    }
+    if (controls->isDownKeyPressed) {
+        inclinationAngle += 50 * dt;
+    }
+
+    if (controls->isWKeyPressed) {
+        camera.getPosition()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
+    }
+    if (controls->isSKeyPressed) {
+        camera.getPosition()->addToThis(-sinInclination * sinAzimuth, -cosInclination, -sinInclination * cosAzimuth);
+    }
+    if (controls->isAKeyPressed) {
+        camera.getPosition()->addToThis(sinInclination * cosAzimuth, cosInclination, -sinInclination * sinAzimuth);
+    }
+    if (controls->isDKeyPressed) {
+        camera.getPosition()->addToThis(-sinInclination * cosAzimuth, cosInclination, sinInclination * sinAzimuth);
+    }
+    if (controls->isQKeyPressed) {
+        rope.update(dt);
+    }
+    if (controls->isEKeyPressed) {
+        rope.update(-dt);
+    }
+
     camera.getLookAt()->setThis(camera.getPosition());
     camera.getLookAt()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
+
+    rope.getTranslation()->setThis(camera.getPosition());
+    rope.getTranslation()->addToThis(0.0, -1.0, 0.0);
+
+    
+    //rope.getRotation()->z = azimuthAngleRads;
+    //rope.getRotation()->x = inclinationAngleRads + M_PI / 2.0;
+
+    rope.updateModelMat();
 
     camera.updateViewMatrix();
 }
