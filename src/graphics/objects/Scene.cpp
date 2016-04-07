@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-Scene::Scene(int maxNumObjects) {
+Scene::Scene(int maxNumObjects) : cursor(new CursorGeometry(), new BasicMaterial()) {
     this->numObjects = 0;
     this->maxNumObjects = maxNumObjects;
     this->objects = new Object3D*[maxNumObjects];    
@@ -20,4 +20,8 @@ int Scene::getNumObjects() {
 
 Object3D **Scene::getObjects() {
     return this->objects;
+}
+
+Mesh *Scene::getCursor() {
+    return &this->cursor;
 }

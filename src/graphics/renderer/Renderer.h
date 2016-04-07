@@ -13,6 +13,8 @@ class Renderer {
         Camera *camera;
 
         void renderObject(Object3D *object, Matrix4 *modelMat);
+
+        void renderCursor(Mesh *cursor);
     public:
         Renderer(Scene *scene, Camera *camera);
 

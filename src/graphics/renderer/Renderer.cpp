@@ -56,6 +56,20 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
     }
 }
 
+void Renderer::renderCursor(Mesh* cursor) {
+    cursor->getMaterial()->getShader()->bind();
+
+    Matrix4 identity = Matrix4::identity();
+    cursor->getMaterial()->getShader()->setMatProperty("proj_mat", identity.m);
+    cursor->getMaterial()->getShader()->setMatProperty("view_mat", identity.m);
+    Matrix4 modelMat = Matrix4::scale(0.005, 0.005, 0.0);
+    cursor->getMaterial()->getShader()->setMatProperty("model_mat", modelMat.m);
+
+    cursor->draw();
+
+    cursor->getMaterial()->getShader()->unbind();
+}
+
 void Renderer::renderScene() {
     Object3D** objects = this->scene->getObjects();
     int numObjects = this->scene->getNumObjects();
@@ -64,31 +78,6 @@ void Renderer::renderScene() {
     for (int i = 0; i < numObjects; i++) {
         renderObject(objects[i], &identity);
     }
-    Geometry geometry(4);
-    geometry.addVertex(1.0, 1.0, 0.0);
-    geometry.addVertex(1.0, -1.0, 0.0);
-    geometry.addVertex(-1.0, 1.0, 0.0);
-    geometry.addVertex(-1.0, -1.0, 0.0);
 
-    geometry.setMaxNumFaces(2);
-    geometry.addFace(0, 2, 3);
-    geometry.addFace(0, 1, 3);
-
-    geometry.setMaxNumNormals(4);
-    geometry.addNormal(0.0, 0.0, 0.0);
-    geometry.addNormal(0.0, 0.0, 0.0);
-    geometry.addNormal(0.0, 0.0, 0.0);
-    geometry.addNormal(0.0, 0.0, 0.0);
-
-    BasicMaterial material;
-
-    Mesh mesh(&geometry, &material);
-    mesh.getMaterial()->getShader()->bind();
-    mesh.getMaterial()->getShader()->setMatProperty("proj_mat", identity.m);
-    mesh.getMaterial()->getShader()->setMatProperty("view_mat", identity.m);
-
-    Matrix4 modelMat = Matrix4::scale(0.01, 0.01, 0.01);
-    mesh.getMaterial()->getShader()->setMatProperty("model_mat", modelMat.m);
-    mesh.draw();
-    mesh.getMaterial()->getShader()->unbind();
+    renderCursor(scene->getCursor());
 }
