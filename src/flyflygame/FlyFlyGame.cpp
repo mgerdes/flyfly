@@ -45,7 +45,7 @@ void FlyFlyGame::update(float dt, Controls *controls) {
     float cosInclination = cos(inclinationAngleRads);
     float sinInclination = sin(inclinationAngleRads);
 
-    camera.getPosition()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
+    //camera.getPosition()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
     camera.getLookAt()->setThis(camera.getPosition());
     camera.getLookAt()->addToThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
 

@@ -4,6 +4,7 @@ project(flyfly)
 
 set(SOURCE_FILES
     src/flyflygame/FlyFlyGame.cpp
+    src/flyflygame/Rope.cpp
     src/math/Vector3.cpp
     src/math/Matrix4.cpp
     src/math/Quaternion.cpp
