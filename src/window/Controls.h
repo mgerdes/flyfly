@@ -5,6 +5,7 @@ class Controls {
     public:
         /* Mouse Controls */
         double mouseSensitivity = 10.0;
+        bool isLeftMouseDown = false, wasLeftMouseClicked = false;
         double mousePositionX, mouseDeltaX, mouseDeltaY, mousePositionY;
 };
 

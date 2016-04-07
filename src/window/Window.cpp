@@ -69,4 +69,13 @@ void Window::updateControls() {
 
     controls.mousePositionX = newMousePositionX;
     controls.mousePositionY = newMousePositionY;
+
+    int leftMouseState = glfwGetMouseButton(glfwWindow, GLFW_MOUSE_BUTTON_LEFT);
+    if (leftMouseState == GLFW_PRESS) {
+        controls.isLeftMouseDown = true;
+    }
+    else {
+        controls.wasLeftMouseClicked = controls.isLeftMouseDown;
+        controls.isLeftMouseDown = false;
+    }
 }
