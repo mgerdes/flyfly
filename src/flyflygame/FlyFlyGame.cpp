@@ -14,9 +14,10 @@ FlyFlyGame::FlyFlyGame() : scene(501), camera(67.0, 1.0, 0.1, 1000.0) {
         float cosB = cos(b);
         float sinB = sin(b);
 
-        int r = (rand() % 500) + 25;
+        int r = (rand() % 5000) + 25;
 
         mesh->getTranslation()->setThis(r * sinA * cosB, r * sinA * sinB, r * cosA);
+        mesh->getScale()->setThis(3.0, 3.0, 3.0);
         mesh->updateModelMat();
         scene.addObject(mesh);
     }
@@ -84,9 +85,11 @@ void FlyFlyGame::update(float dt, Controls *controls) {
     rope.getTranslation()->setThis(camera.getPosition());
     rope.getTranslation()->addToThis(0.0, -1.0, 0.0);
 
-    
-    //rope.getRotation()->z = azimuthAngleRads;
-    //rope.getRotation()->x = inclinationAngleRads + M_PI / 2.0;
+    Vector3 v1(0.0, 0.0, 1.0);
+    Vector3 v2(sinInclination * sinAzimuth, cosInclination, -sinInclination * cosAzimuth);
+    v2.normalizeThis();
+    Quaternion q(&v1, &v2); 
+    rope.getQuaternion()->setThis(&q);
 
     rope.updateModelMat();
 

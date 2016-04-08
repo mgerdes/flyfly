@@ -1,4 +1,5 @@
 #include "Quaternion.h"
+#include "stdio.h"
 
 Quaternion::Quaternion() {
     w = x = y = z = 0;
@@ -21,6 +22,19 @@ Quaternion::Quaternion(float angle, float x, float y, float z) {
     this->y = temp * y;
     this->z = temp * z;
     normalizeThis();
+}
+
+Quaternion::Quaternion(Vector3 *v1, Vector3 *v2) {
+    float cosTheta = Vector3::dot(v1, v2);
+    float angle = acos(cosTheta);
+    Vector3 w = Vector3::cross(v1, v2);
+    w.normalizeThis();
+
+    this->w = cos(angle / 2.0);
+    float temp = sin(angle / 2.0);
+    this->x = temp * w.x;
+    this->y = temp * w.y;
+    this->z = temp * w.z;
 }
 
 Matrix4 Quaternion::getMatrix() {

@@ -8,8 +8,6 @@ Rope::Rope() : Mesh(new BoxGeometry(), new BasicMaterial()) {
     this->getScale()->setThis(0.05, 0.05, 500.0);
     this->updateModelMat();
     getRotation()->z = M_PI;
-
-    setMatrixMultOrder(MatrixMultOrder::T_R_S);
 }
 
 void Rope::update(float dt) {

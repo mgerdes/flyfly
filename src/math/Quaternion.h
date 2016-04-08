@@ -15,6 +15,8 @@ class Quaternion {
 
         Quaternion(float angle, float x, float y, float z);
 
+        Quaternion(Vector3 *v1, Vector3 *v2);
+
         Matrix4 getMatrix();
 
         void normalizeThis();
