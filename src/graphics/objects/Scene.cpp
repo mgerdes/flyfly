@@ -1,6 +1,7 @@
 #include "Scene.h"
 
 Scene::Scene(int maxNumObjects) : cursor(new CursorGeometry(), new BasicMaterial()) {
+    this->cursor.getMaterial()->getColor()->setThis(10.0, 10.0, 10.0);
     this->numObjects = 0;
     this->maxNumObjects = maxNumObjects;
     this->objects = new Object3D*[maxNumObjects];    

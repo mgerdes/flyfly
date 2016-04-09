@@ -68,6 +68,7 @@ void Renderer::renderCursor(Mesh* cursor) {
     cursor->getMaterial()->getShader()->setMatProperty("view_mat", identity.m);
     Matrix4 modelMat = Matrix4::scale(0.005, 0.005, 0.0);
     cursor->getMaterial()->getShader()->setMatProperty("model_mat", modelMat.m);
+    cursor->getMaterial()->getShader()->setVec3Property("material_color", cursor->getMaterial()->getColor());
 
     cursor->draw();
 

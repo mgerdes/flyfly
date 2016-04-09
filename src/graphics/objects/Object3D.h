@@ -4,6 +4,7 @@
 #include "Matrix4.h"
 #include "Vector3.h"
 #include "Quaternion.h"
+#include "Box.h"
 
 enum MatrixMultOrder {
     T_R_S, R_T_S
@@ -17,6 +18,7 @@ class Object3D {
         MatrixMultOrder matrixMultOrder;
         Quaternion quaternion;
         Vector3 translation, scale, rotation;
+        Box boundingBox;
     public:
         bool isMesh, isLine, isVisible;
 
@@ -43,6 +45,10 @@ class Object3D {
         Vector3 *getScale();
 
         Vector3 *getRotation();
+
+        Box *getBoundingBox();
+
+        void updateBoundingBox();
 };
 
 #endif

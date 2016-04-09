@@ -80,3 +80,12 @@ Vector3 *Object3D::getScale() {
 Vector3 *Object3D::getRotation() {
     return &rotation;
 }
+
+Box *Object3D::getBoundingBox() {
+    return &boundingBox;
+}
+
+void Object3D::updateBoundingBox() {
+    boundingBox.getMin()->applyMatrix(&modelMat);
+    boundingBox.getMax()->applyMatrix(&modelMat);
+}
