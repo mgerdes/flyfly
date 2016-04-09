@@ -29,6 +29,8 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
         Matrix4 normalMat = Matrix4::inverseOf(&transpose);
         mesh->getMaterial()->getShader()->setMatProperty("normal_mat", normalMat.m);
 
+        mesh->getMaterial()->getShader()->setVec3Property("material_color", mesh->getMaterial()->getColor());
+
         mesh->draw();
 
         if (mesh->getMaterial()->getTexture()) {
@@ -44,6 +46,8 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
         line->getMaterial()->getShader()->setMatProperty("proj_mat", camera->getProjectionMatrix()->m);
         line->getMaterial()->getShader()->setMatProperty("view_mat", camera->getViewMatrix()->m);
         line->getMaterial()->getShader()->setMatProperty("model_mat", modelMat->m);
+
+        mesh->getMaterial()->getShader()->setVec3Property("material_color", mesh->getMaterial()->getColor());
 
         line->draw();
 

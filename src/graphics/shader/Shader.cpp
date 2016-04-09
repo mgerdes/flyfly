@@ -42,6 +42,17 @@ void Shader::addProperty(const char *propertyName) {
     properties[propertyName] = propertyLocation;
 }
 
+void Shader::setVec3Property(const char* propertyName, Vector3 *v) {
+    setVec3Property(propertyName, v->x, v->y, v->z);
+}
+
+void Shader::setVec3Property(const char* propertyName, float x, float y, float z) {
+    if (!properties.count(propertyName)) {
+        addProperty(propertyName);
+    }
+    glUniform3f(properties[propertyName], x, y, z);
+}
+
 void Shader::setMatProperty(const char* propertyName, float m[16]) {
     if (!properties.count(propertyName)) {
         addProperty(propertyName);

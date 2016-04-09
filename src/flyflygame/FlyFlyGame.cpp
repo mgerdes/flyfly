@@ -3,6 +3,11 @@
 FlyFlyGame::FlyFlyGame() : scene(501), camera(67.0, 1.0, 0.1, 1000.0) {
     for (int i = 0; i < 500; i++) {
         BasicMaterial *material = new BasicMaterial();
+        float colorR = (rand() & 1000) / 1000.0;
+        float colorG = (rand() & 1000) / 1000.0;
+        float colorB = (rand() & 1000) / 1000.0;
+        material->getColor()->setThis(colorR, colorG, colorB);
+
         BoxGeometry *boxGeometry = new BoxGeometry();
         Mesh *mesh = new Mesh(boxGeometry, material);
 
@@ -90,6 +95,13 @@ void FlyFlyGame::update(float dt, Controls *controls) {
     v2.normalizeThis();
     Quaternion q(&v1, &v2); 
     rope.getQuaternion()->setThis(&q);
+
+    if (controls->wasLeftMouseClicked) {
+        rope.isVisible = true;
+    }
+    else {
+        rope.isVisible = false;
+    }
 
     rope.updateModelMat();
 
