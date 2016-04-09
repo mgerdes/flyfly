@@ -34,4 +34,5 @@ Object3D *Scene::getClosestHit(Ray *r) {
             return objects[i];
         }
     }
+    return 0;
 }

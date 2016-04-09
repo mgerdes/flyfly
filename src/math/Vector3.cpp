@@ -89,3 +89,7 @@ void Vector3::addToThis(float x, float y, float z) {
     this->y += y;
     this->z += z;
 }
+
+void Vector3::print() {
+    printf("%f, %f, %f\n", x, y, z);
+}

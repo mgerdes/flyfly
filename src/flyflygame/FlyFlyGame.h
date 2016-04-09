@@ -15,6 +15,7 @@ class FlyFlyGame {
         Scene scene; 
         Camera camera;
         Rope rope;
+        Object3D *attachedObject;
     public:
         FlyFlyGame();
 

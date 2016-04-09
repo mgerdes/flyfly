@@ -5,9 +5,10 @@ Rope::Rope() : Mesh(new BoxGeometry(), new BasicMaterial()) {
     getGeometry()->applyMatrix(&translationMatrix);
     updateVertices();
 
-    this->getScale()->setThis(0.05, 0.05, 500.0);
+    this->getScale()->setThis(0.001, 0.001, 500.0);
     this->updateModelMat();
     getRotation()->z = M_PI;
+    this->getMaterial()->getColor()->setThis(5.0, 5.0, 5.0);
 }
 
 void Rope::update(float dt) {

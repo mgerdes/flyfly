@@ -2,6 +2,8 @@
 #define MATH_VECTOR3_H
 
 #include <math.h>
+#include <stdio.h>
+
 #include "Matrix4.h"
 
 class Matrix4;
@@ -41,6 +43,8 @@ class Vector3 {
         static float dot(Vector3 *v1, Vector3 *v2);
 
         static float distanceBetween(Vector3 *v1, Vector3 *v2);
+
+        void print();
 };
 
 #endif 
