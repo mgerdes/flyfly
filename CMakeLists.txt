@@ -8,6 +8,8 @@ set(SOURCE_FILES
     src/math/Vector3.cpp
     src/math/Matrix4.cpp
     src/math/Quaternion.cpp
+    src/math/Ray.cpp
+    src/math/Box.cpp
     src/graphics/camera/Camera.cpp
     src/graphics/material/Material.cpp
     src/graphics/geometry/Geometry.cpp
