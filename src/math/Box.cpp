@@ -75,3 +75,8 @@ void Box::setFromGeometry(Geometry *geometry) {
         }
     }
 }
+
+void Box::applyMatrix(Matrix4 *m) {
+    min.applyMatrix(m);
+    max.applyMatrix(m);
+}

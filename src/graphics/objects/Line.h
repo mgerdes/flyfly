@@ -4,6 +4,7 @@
 #include "Object3D.h"
 #include "Geometry.h"
 #include "Material.h"
+#include "BasicLineMaterial.h"
 
 class Line : public Object3D {
     private:
@@ -12,6 +13,8 @@ class Line : public Object3D {
         Material *material;
     public:
         Line(Geometry *geometry, Material *material);
+
+        static Line *createWireframeForBox(Box *box);
 
         ~Line();
 

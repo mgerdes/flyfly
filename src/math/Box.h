@@ -22,6 +22,8 @@ class Box {
         Vector3 *getMax();
 
         void setFromGeometry(Geometry *geometry);
+
+        void applyMatrix(Matrix4 *m);
 };
 
 #endif

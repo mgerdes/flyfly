@@ -6,6 +6,8 @@
 #include "Quaternion.h"
 #include "Box.h"
 
+class Line;
+
 enum MatrixMultOrder {
     T_R_S, R_T_S
 };
@@ -19,6 +21,7 @@ class Object3D {
         Quaternion quaternion;
         Vector3 translation, scale, rotation;
         Box boundingBox;
+        Line *wireframe;
     public:
         bool isMesh, isLine, isVisible;
 
@@ -49,6 +52,8 @@ class Object3D {
         Box *getBoundingBox();
 
         void updateBoundingBox();
+
+        Line *getWireframe();
 };
 
 #endif

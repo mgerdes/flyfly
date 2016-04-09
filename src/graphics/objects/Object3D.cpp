@@ -1,4 +1,5 @@
 #include "Object3D.h"
+#include "Line.h"
 
 Object3D::Object3D(int maxNumChildren) {
     this->maxNumChildren = maxNumChildren;
@@ -86,6 +87,10 @@ Box *Object3D::getBoundingBox() {
 }
 
 void Object3D::updateBoundingBox() {
-    boundingBox.getMin()->applyMatrix(&modelMat);
-    boundingBox.getMax()->applyMatrix(&modelMat);
+    boundingBox.applyMatrix(&modelMat);
+    wireframe = Line::createWireframeForBox(&boundingBox);
+}
+
+Line *Object3D::getWireframe() {
+    return wireframe;
 }

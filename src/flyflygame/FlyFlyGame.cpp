@@ -28,12 +28,6 @@ FlyFlyGame::FlyFlyGame() : scene(501), camera(67.0, 1.0, 0.1, 1000.0) {
         mesh->getBoundingBox()->setFromGeometry(boxGeometry);
         mesh->updateBoundingBox();
 
-        Vector3 *min = mesh->getBoundingBox()->getMin();
-        Vector3 *max = mesh->getBoundingBox()->getMax();
-
-        printf("min = %f, %f, %f\n", min->x, min->y, min->z);
-        printf("max = %f, %f, %f\n\n", max->x, max->y, max->z);
-
         scene.addObject(mesh);
     }
     scene.addObject(&rope);
