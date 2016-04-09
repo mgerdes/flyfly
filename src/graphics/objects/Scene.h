@@ -4,6 +4,7 @@
 #include "Mesh.h"
 #include "CursorGeometry.h"
 #include "BasicMaterial.h"
+#include "Ray.h"
 
 class Scene {
     private:
@@ -22,6 +23,8 @@ class Scene {
         int getNumObjects();
 
         Mesh *getCursor();
+
+        Object3D *getClosestHit(Ray *r);
 };
 
 #endif

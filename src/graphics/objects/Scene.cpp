@@ -25,3 +25,7 @@ Object3D **Scene::getObjects() {
 Mesh *Scene::getCursor() {
     return &this->cursor;
 }
+
+Object3D *Scene::getClosestHit(Ray *r) {
+    
+}

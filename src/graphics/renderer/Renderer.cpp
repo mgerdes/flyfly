@@ -47,7 +47,7 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
         line->getMaterial()->getShader()->setMatProperty("view_mat", camera->getViewMatrix()->m);
         line->getMaterial()->getShader()->setMatProperty("model_mat", modelMat->m);
 
-        mesh->getMaterial()->getShader()->setVec3Property("material_color", mesh->getMaterial()->getColor());
+        line->getMaterial()->getShader()->setVec3Property("material_color", line->getMaterial()->getColor());
 
         line->draw();
 
