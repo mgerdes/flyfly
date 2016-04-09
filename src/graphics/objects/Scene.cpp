@@ -28,5 +28,10 @@ Mesh *Scene::getCursor() {
 }
 
 Object3D *Scene::getClosestHit(Ray *r) {
-    
+    for (int i = 0; i < numObjects; i++) {
+        Box *box = objects[i]->getBoundingBox();
+        if (box->doesRayIntersectThis(r, 0.0, 10000.0)) {
+            return objects[i];
+        }
+    }
 }

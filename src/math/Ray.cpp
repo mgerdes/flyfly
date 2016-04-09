@@ -1,8 +1,6 @@
 #include "Ray.h"
 
-Ray::Ray(Vector3 origin, Vector3 direction) : origin(origin), direction(direction) {
-
-}
+Ray::Ray(Vector3 origin, Vector3 direction) : origin(origin), direction(direction) { }
 
 Vector3 Ray::getPointAtTime(float t) {
     Vector3 v;

@@ -8,8 +8,6 @@
 class Box {
     private:
         Vector3 min, max;
-
-        bool testIntersection(float o, float d, float tmin, float tmax);
     public:
         Box();
 

@@ -18,6 +18,8 @@ Object3D::Object3D(int maxNumChildren) {
 
     this->modelMat = Matrix4::identity();
 
+    this->wireframe = 0;
+
     this->matrixMultOrder = MatrixMultOrder::T_R_S;
 }
 

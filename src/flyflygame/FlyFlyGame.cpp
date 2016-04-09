@@ -30,6 +30,7 @@ FlyFlyGame::FlyFlyGame() : scene(501), camera(67.0, 1.0, 0.1, 1000.0) {
 
         scene.addObject(mesh);
     }
+
     scene.addObject(&rope);
 }
 
@@ -101,11 +102,22 @@ void FlyFlyGame::update(float dt, Controls *controls) {
     rope.getQuaternion()->setThis(&q);
 
     if (controls->wasLeftMouseClicked) {
+        Vector3 rayOrigin;
+        rayOrigin.setThis(camera.getPosition());
+
+        Vector3 rayDirection;
+        rayDirection.setThis(sinInclination * sinAzimuth, cosInclination, sinInclination * cosAzimuth);
+
+        Ray r(rayOrigin, rayDirection);
+        scene.getClosestHit(&r);
+
         rope.isVisible = true;
     }
     else {
         rope.isVisible = false;
     }
+
+
 
     rope.updateModelMat();
 

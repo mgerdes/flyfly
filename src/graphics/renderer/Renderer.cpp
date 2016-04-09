@@ -38,8 +38,10 @@ void Renderer::renderObject(Object3D *object, Matrix4 *modelMat) {
         }
         mesh->getMaterial()->getShader()->unbind();
 
-        Matrix4 identity = Matrix4::identity();
-        renderObject(mesh->getWireframe(), &identity);
+        if (mesh->getWireframe()) {
+            Matrix4 identity = Matrix4::identity();
+            renderObject(mesh->getWireframe(), &identity);
+        }
     }
     else if (object->isLine) {
         Line *line = (Line*) object;
